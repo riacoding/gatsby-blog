@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import { DiscussionEmbed } from "disqus-react"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +11,10 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const disqusConfig = {
+      shortname: process.env.GATSBY_DISQUS_NAME,
+      config: { identifier: post.frontmatter.date },
+    }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -35,14 +39,24 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        {post.frontmatter.link && (
+          <iframe
+            width="560"
+            height="315"
+            src={post.frontmatter.link}
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        )}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <DiscussionEmbed {...disqusConfig} />
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
         <Bio />
-
         <ul
           style={{
             display: `flex`,
@@ -90,6 +104,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        link
       }
     }
   }
