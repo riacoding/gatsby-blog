@@ -5,6 +5,8 @@ description: This is a custom description for SEO and Open Graph purposes, rathe
 link: "https://www.youtube.com/embed/2R2gb0MKJlo"
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2R2gb0MKJlo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Mountains
 
 Altitudinal zones tend to follow a typical pattern. At the highest elevations, trees cannot grow, and whatever life may be present will be of the alpine type, resembling tundra. Below that, montane forests grow. In the temperate portions of the earth, those forests tend to be needleleaf trees, while in the tropics, they can be broadleaf trees growing in a rain forest.
